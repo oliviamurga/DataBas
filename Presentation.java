@@ -1,7 +1,7 @@
 
-	import java.util.LinkedList;
+import java.util.LinkedList;
 import java.util.List;
-	import java.util.ListIterator;
+import java.util.ListIterator;
 
 	public class Presentation {
 
@@ -24,6 +24,4 @@ import java.util.List;
 
 		}
 
-	}
-
-
+}
