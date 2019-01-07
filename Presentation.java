@@ -1,4 +1,3 @@
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -11,8 +10,7 @@ import java.util.ListIterator;
 			ListIterator<String> listIterator = dataBase.listIterator();
 			int i = 1;
 			while (listIterator.hasNext()) {
-				System.out.print(i);
-				System.out.println(listIterator.next() + " " );
+				System.out.println(i + ". " + listIterator.next());
 				i ++;
 			}
 			System.out.println();
@@ -24,4 +22,4 @@ import java.util.ListIterator;
 
 		}
 
-}
+	}

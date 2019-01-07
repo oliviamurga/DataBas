@@ -1,43 +1,37 @@
-import java.util.Scanner;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Menu {
-
-public static LinkedList <String> dataBase = new LinkedList<String>();
+	public static LinkedList <String> dataBase = new LinkedList<String>();
+	public static Scanner s = new Scanner(System.in);
 
 	public String createUsername() {
-		Scanner s = new Scanner(System.in);
 		System.out.println("Enter a username:");
 		String username = s.nextLine();
-		s.close();
 		return username;
 	}
 
 	public String createPassword() {
-		Scanner l = new Scanner(System.in);
 		System.out.println("Enter a password: ");
-		String password = l.nextLine();
-		l.close();
+		String password = s.nextLine();
 		return password;
 	}
 
 	public static void dataInsert() {
 
-		System.out.println("PLEASE ENTER ELEMENTS TO YOUR DATABASE. PRESS 0 TO FINISH"); // WE ASSUME THE USER IS MATURE ENOUGH TO NOT MESS WITH THE PROGRAM//
-		Scanner a = new Scanner(System.in);
-		String element = a.nextLine();
+		System.out.println("PLEASE ENTER ELEMENTS TO YOUR DATABASE. PRESS 0 TO FINISH"); // WE ASSUME THE USER IS MATURE ENOUGH TO NOT MESS WITH THE PROGRAM
+		String element = s.nextLine();
 
 		while (!element.equals("0")) {
 
 			dataBase.add(element);
-			element = a.nextLine();
+			element = s.nextLine();
 		}
 
 	}
 
 	public void printMenu() {
 
-		Scanner sc = new Scanner(System.in);
 		System.out.println("    ----- MENU -----   ");
 		System.out.println("PRESS 1 : INSERT DATA TO DATABASE");
 		System.out.println("PRESS 2 : PRINT DATABASE");
@@ -45,8 +39,8 @@ public static LinkedList <String> dataBase = new LinkedList<String>();
 		System.out.println("PRESS 4 : CHANGE DATA");
 		System.out.println("PRESS 5 : TECHNICAL REPORT");
 		System.out.println("PRESS ANYTHING ELSE TO EXIT DATABAS");
-		int choice = sc.nextInt();
-
+		int choice = s.nextInt();
+		s.nextLine();
 
 		switch (choice) {
 
@@ -64,20 +58,18 @@ public static LinkedList <String> dataBase = new LinkedList<String>();
 		case 3:
 
 			System.out.println("WHICH ITEM WOULD YOU LIKE TO DELETE? TYPE THE ITEM'S INDEX BELOW.");
-			Scanner i = new Scanner(System.in);
-			int index = i.nextInt();
+			int index = s.nextInt();
 			Menu.deleteData(index);
 			break;
 
 		case 4:
 
 			System.out.println("WHICH ITEM WOULD YOU LIKE TO CHANGE? TYPE THE ITEM'S INDEX BELOW.");
-			Scanner in = new Scanner(System.in);
-			int index2 = in.nextInt();
-
+			int index2 = s.nextInt();
+			s.nextLine();
 			System.out.println("CHANGE YOUR DATA BELOW.");
-			String s = in.nextLine();
-			Menu.changeData(index2, s);
+			String str = s.nextLine();
+			Menu.changeData(index2, str);
 			break;
 
 		case 5:
@@ -100,11 +92,10 @@ public static LinkedList <String> dataBase = new LinkedList<String>();
 	}
 
 	public static void changeData(int ind, String s) {
-		dataBase.set(ind, s);
-
+		dataBase.set(ind-1, s);
 	}
 
 	public static void technicalSupport() {
-
+		System.out.println("Sorry for the inconvenience.\n Our technical support is under maintenance\n");
 	}
 }
