@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Menu {
 	public static LinkedList <String> dataBase = new LinkedList<String>();
+	public static LinkedList <String> names = new LinkedList<String>();
 	public static Scanner s = new Scanner(System.in);
 
 	public String createUsername() {
@@ -19,10 +20,19 @@ public class Menu {
 
 	public static void dataInsert() {
 
-		System.out.println("PLEASE ENTER ELEMENTS TO YOUR DATABASE. PRESS 0 TO FINISH"); // WE ASSUME THE USER IS MATURE ENOUGH TO NOT MESS WITH THE PROGRAM
+		System.out.println("PLEASE ENTER THE NAMES OF THE COLUMNS IN ONE LINE. PRESS EXIT TO FINISH");
+				String columnname = s.nextLine();
+
+				while (!columnname.equals("EXIT")) {
+
+					names.add(columnname);
+					columnname = s.nextLine();
+				}
+
+		System.out.println("PLEASE ENTER IN ONE LINE THE ELEMENTS FOR EACH LINE. PRESS EXIT TO FINISH"); // WE ASSUME THE USER IS MATURE ENOUGH TO NOT MESS WITH THE PROGRAM
 		String element = s.nextLine();
 
-		while (!element.equals("0")) {
+		while (!element.equals("EXIT")) {
 
 			dataBase.add(element);
 			element = s.nextLine();
@@ -52,7 +62,7 @@ public class Menu {
 		case 2:
 
 			Presentation p = new Presentation ();
-			p.printAllData(Menu.dataBase);
+			p.printAllData(Menu.dataBase, Menu.names);
 			break;
 
 		case 3:

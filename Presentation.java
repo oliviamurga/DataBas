@@ -5,10 +5,16 @@ import java.util.ListIterator;
 	public class Presentation {
 
 
-		public void printAllData (LinkedList<String> dataBase) {
+		public void printAllData (LinkedList<String> dataBase, LinkedList<String> names) {
 
+			ListIterator<String> listIterator2 = names.listIterator();
 			ListIterator<String> listIterator = dataBase.listIterator();
 			int i = 1;
+
+			while (listIterator2.hasNext()) {
+
+						System.out.print("   [" + listIterator2.next() + "]\n" );
+		}
 			while (listIterator.hasNext()) {
 				System.out.println(i + ". " + listIterator.next());
 				i ++;
